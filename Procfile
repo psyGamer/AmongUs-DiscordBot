@@ -1,1 +1,1 @@
-Worker: ".\venv\Scripts\python.exe" ".\bot.py"
+Worker: python bot/bot.py
