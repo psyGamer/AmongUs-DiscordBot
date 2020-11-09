@@ -1,0 +1,1 @@
+Worker: ".\venv\Scripts\python.exe" ".\bot.py"
