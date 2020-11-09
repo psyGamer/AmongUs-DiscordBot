@@ -1,5 +1,4 @@
 import embeds
-import time
 
 data = None
 
@@ -31,18 +30,9 @@ async def set_game_code(guild, code):
 
     embed, file = embeds.embeds['game-code'](code)
 
-    print('Code: ' + str(code))
-
     if code is not None:
-        print('k')
-        start = time.time()
-        #await game_code_channel.edit(name='Game Code: {}'.format(code))
-        mid = time.time()
-        print('Mid: {}'.format(mid - start))
+        await game_code_channel.edit(name='Game Code: {}'.format(code))
         await chat_channel.send(file=file, embed=embed)
-        end = time.time()
-        print('End: {}'.format(end - mid))
-        print('Total: {}'.format(end - start))
     else:
         await game_code_channel.edit(name='Game Code: {}'.format('XXXXXX'))
 

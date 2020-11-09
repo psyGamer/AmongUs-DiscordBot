@@ -1,15 +1,14 @@
-import time
-
 import discord
 from discord import Message
 
 import commands
 import embeds
+
 import json
 import os
 
-intents = discord.Intents.all()
-client = discord.Client(intents=intents)
+
+client = discord.Client()
 global_mute_message = None
 
 server_guild = None  # Server Guild ID
@@ -19,7 +18,7 @@ force_muted = []  # All Members that ara forcefully muted by the Bot
 self_mute = []  # A List of all Members which have muted themselves
 muted = False  # If the Game Call is muted
 
-with open('config.json') as config:
+with open('./config.json') as config:
     data = json.load(config)
 
 
@@ -118,4 +117,5 @@ async def on_voice_state_update(member, before, after):
 
         await update_mute(member.voice.channel, False)
 
-client.run(os.environ['AMONG_US_BOT_TOKEN'])
+print(os.environ.get('AMONG_US_BOT_TOKEN'))
+client.run(str(os.getenv('AMONG_US_BOT_TOKEN')))
