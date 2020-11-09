@@ -1,0 +1,11 @@
+# IDE
+.idea
+__pycache__
+venv
+
+# Compiled
+build
+dist
+gui
+bot.spec
+*.py
