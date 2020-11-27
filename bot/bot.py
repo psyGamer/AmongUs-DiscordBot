@@ -63,7 +63,7 @@ async def update_mute(channel, mute):
     muted = mute
 
     for member in channel.members:
-        if ((member in force_muted) != mute) and !member.bot:
+        if ((member in force_muted) != mute) and not member.bot:
             if mute:
                 force_muted.append(member)
             else:
