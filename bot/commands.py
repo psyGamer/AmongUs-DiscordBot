@@ -2,12 +2,11 @@ import embeds
 
 data = None
 
-
 async def reset(guild, json_data):
     global data
     data = json_data
 
-    bot_commands_channel = guild.get_channel(data['channels']['management']['bot_commands'])
+    bot_commands_channel = guild.get_channel(data['channels']['chat_for_admins'])
 
     async for message in bot_commands_channel.history():
         await message.delete()
@@ -25,8 +24,8 @@ async def reset(guild, json_data):
 
 
 async def set_game_code(guild, code):
-    game_code_channel = guild.get_channel(data['channels']['game']['game_code'])
-    chat_channel = guild.get_channel(data['channels']['game']['chat'])
+    game_code_channel = guild.get_channel(data['channels']['call_to_display_game_code'])
+    chat_channel = guild.get_channel(data['channels']['char_for_game_code'])
 
     embed, file = embeds.embeds['game-code'](code)
 

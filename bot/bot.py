@@ -27,7 +27,7 @@ async def on_ready():
     global server_guild
     global global_mute_message
 
-    server_guild = client.get_guild(773213583982460939)
+    server_guild = client.get_guild(data['server_id'])
     global_mute_message = await commands.reset(server_guild, data)
 
     await commands.set_game_code(server_guild, None)
@@ -37,7 +37,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('!') and message.channel.id == data['channels']['management']['bot_commands']:
+    if message.content.startswith('!') and message.channel.id == data['channels']['chat_for_admins']:
         content = message.content.split(' ')
         command = content[0][1::]
         args = content[1::]
@@ -53,7 +53,7 @@ async def on_message(message):
             msg = await message.channel.send(file=file, embed=embed)
             await msg.delete(delay=10)
         await message.delete()
-    elif message.channel.id == data['channels']['management']['bot_commands'] \
+    elif message.channel.id == data['channels']['chat_for_admins'] \
             and not message.author.bot:
         await message.delete()
 
@@ -117,5 +117,4 @@ async def on_voice_state_update(member, before, after):
 
         await update_mute(member.voice.channel, False)
 
-print(os.environ.get('AMONG_US_BOT_TOKEN'))
 client.run(str(os.getenv('AMONG_US_BOT_TOKEN')))

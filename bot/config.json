@@ -1,17 +1,9 @@
 {
+  "server_id": 0,
   "channels": {
-    "info": {
-      "rules": 773214439738441749,
-      "maps": 773218139244593183,
-      "announcements": 773517495624663081
-    },
-    "game": {
-      "chat": 773219524135747604,
-      "game_call": 773219269177638953,
-      "game_code": 773219222150184982
-    },
-    "management": {
-      "bot_commands": 773893447126876160
-    }
+    "char_for_game_code": 0,
+    "call_to_display_game_code": 0,
+    "among_us_call": 0,
+    "chat_for_admins": 0
   }
 }
