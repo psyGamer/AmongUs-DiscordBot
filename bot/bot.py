@@ -49,7 +49,7 @@ async def on_message(message):
                 global global_mute_message
                 global_mute_message = result
         else:
-            embed, file = embeds.embeds['unknown_command'](command)
+            embed, file = embeds.embeds['unknown_command'](command, data['use_german'])
             msg = await message.channel.send(file=file, embed=embed)
             await msg.delete(delay=10)
         await message.delete()

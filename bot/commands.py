@@ -11,9 +11,9 @@ async def reset(guild, json_data):
     async for message in bot_commands_channel.history():
         await message.delete()
 
-    embed, file = embeds.embeds['help']()
+    embed, file = embeds.embeds['help'](data['use_german'])
     await bot_commands_channel.send(file=file, embed=embed)
-    embed, file, reactions = embeds.embeds['global_mute']()
+    embed, file, reactions = embeds.embeds['global_mute'](data['use_german'])
 
     message = await bot_commands_channel.send(file=file, embed=embed)
 
@@ -25,9 +25,9 @@ async def reset(guild, json_data):
 
 async def set_game_code(guild, code):
     game_code_channel = guild.get_channel(data['channels']['call_to_display_game_code'])
-    chat_channel = guild.get_channel(data['channels']['char_for_game_code'])
+    chat_channel = guild.get_channel(data['channels']['chat_for_game_code'])
 
-    embed, file = embeds.embeds['game-code'](code)
+    embed, file = embeds.embeds['game-code'](code, data['use_german'])
 
     if code is not None:
         await game_code_channel.edit(name='Game Code: {}'.format(code))
