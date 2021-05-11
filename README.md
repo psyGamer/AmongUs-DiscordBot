@@ -1,5 +1,7 @@
 # Among Us - Discord Bot
 
+### This project is discontinued and no longer supported
+
 A Discord Bot for making it easy to host an Among Us event without any annoying talking.
 
 # How it workes
